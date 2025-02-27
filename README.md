@@ -19,11 +19,10 @@
 
 ---
 
-## 🌟 What is MediScribe AI?
+## 🌟 What is Medical-Transcription Agents?
 
-MediScribe AI transforms the way healthcare professionals document patient interactions. This powerful system converts medical audio recordings into structured clinical reports, extracting key information and generating professional documentation in seconds.
+Medical-Transcription Agents transforms the way healthcare professionals document patient interactions. This powerful system converts medical audio recordings into structured clinical reports, extracting key information and generating professional documentation in seconds.
 
-> "Documentation time reduced by 60% with enhanced accuracy and standardization" — *Dr. Jane Smith, Beta Tester*
 
 ## ✨ Key Features
 
@@ -66,8 +65,8 @@ MediScribe AI transforms the way healthcare professionals document patient inter
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mediscribe-ai.git
-cd mediscribe-ai
+git clone https://github.com/Ayushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs.git
+cd Medical-Transcription-Analysis-using-LLMs
 
 # Set up virtual environment
 python -m venv venv
@@ -84,19 +83,6 @@ Create a `.env` file in the project root:
 ```
 HUGGINGFACE_API_TOKEN=your_huggingface_token
 GOOGLE_API_KEY=your_google_api_key
-```
-
-### Basic Usage
-
-```python
-from mediscribe import process_recording
-
-# Process an audio file and generate a report
-report = process_recording("patient_consultation.mp3")
-
-# Save the report
-with open("patient_report.md", "w") as f:
-    f.write(report)
 ```
 
 ## 🔧 The Tech Stack
@@ -129,31 +115,6 @@ graph TD
     G -->|Gemini| H[Final Documentation]
 ```
 
-## 🛠️ Advanced Usage
-
-### Custom Processing
-
-```python
-from mediscribe import transcribe, extract_entities, summarize, generate_report
-
-# Step-by-step processing with customization
-transcription = transcribe("recording.mp3", duration=1800)  # 30 minutes
-
-# Customize entity extraction
-entities = extract_entities(transcription, confidence_threshold=0.85)
-
-# Generate tailored summary
-summary = summarize(transcription, max_length=250, min_length=100)
-
-# Create specialized report
-report = generate_report(
-    entities, 
-    summary,
-    template="soap_note",  # Options: soap_note, consultation, follow_up
-    include_recommendations=True
-)
-```
-
 ## 💻 Example Output
 
 <details>
@@ -162,11 +123,11 @@ report = generate_report(
 ```markdown
 ### **Patient Clinical Report**  
 **Patient Information:**  
-- Name: John Smith  
+- Name: Asha Kumari
 - Age: 45  
 - Gender: Male  
-- Date of Visit: February 27, 2025  
-- Physician: Dr. Martinez  
+- Date of Visit: February 10, 2025  
+- Physician: Dr. Saurabh
   
 ### **Chief Complaint & History:**  
 - **Primary Symptoms:** Persistent cough (2 weeks), fatigue, mild fever (100.2°F)  
@@ -224,6 +185,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   
 Made with ❤️ for the healthcare community
 
-[⭐ Star this repo](https://github.com/yourusername/mediscribe-ai) | [🐛 Report Bug](https://github.com/yourusername/mediscribe-ai/issues) | [📝 Request Feature](https://github.com/yourusername/mediscribe-ai/issues)
+[⭐ Star this repo](https://github.com/Ayushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs) | [🐛 Report Bug](https://github.com/Ayushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs/issues) | [📝 Request Feature](https://github.comAyushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs/issues)
 
 </div>
