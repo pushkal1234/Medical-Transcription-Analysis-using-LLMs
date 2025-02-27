@@ -1,7 +1,7 @@
 # Medical-Transcription-Analysis-using-LLMs
 <div align="center">
   
-# 🩺 MediScribe AI
+# 🩺 Medical-Transcription Agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -14,7 +14,7 @@
 </div>
 
 <p align="center">
-  <img src="https://i.imgur.com/placeholder.png" alt="MediScribe AI Pipeline" width="600"/>
+  <img src="[https://i.imgur.com/placeholder.png](https://www.google.com/imgres?q=medical%20ai%20photo&imgurl=https%3A%2F%2Fwp.healthdatamanagement.com%2Fwp-content%2Fuploads%2F2023%2F12%2FART-AI-Generative-Narrow.png&imgrefurl=https%3A%2F%2Fwww.healthdatamanagement.com%2Farticles%2Fgen-ai-and-narrow-ai-bridging-technology-in-health-and-care%3Fid%3D134010&docid=MGphGGasa9hdBM&tbnid=Bt0Sp4vY4l58_M&vet=12ahUKEwjXr4js5uKLAxU5yzgGHUL6MsE4ChAzegQIAxAA..i&w=1024&h=1024&hcb=2&ved=2ahUKEwjXr4js5uKLAxU5yzgGHUL6MsE4ChAzegQIAxAA" alt="Medical-Transcription Agents Pipeline" width="600"/>
 </p>
 
 ---
