@@ -11,12 +11,6 @@
 
 **Turn medical conversations into comprehensive clinical documentation with AI**
 
-</div>
-
-<p align="center">
-  <img src="![image](https://github.com/user-attachments/assets/c0263c64-15ca-4cf1-b693-fe0f54d5ef23)" alt="Medical-Transcription Agents Pipeline" width="600"/>
-</p>
-
 ---
 
 ## 🌟 What is Medical-Transcription Agents?
