@@ -82,7 +82,7 @@ class FullProcessResponse(BaseModel):
 # API endpoints
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Medical Transcription API"}
+    return {"message": "Welcome to the Medical Transcription Analysis Application"}
 
 @app.post("/transcribe", response_model=TranscriptionResponse)
 async def transcribe_audio(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
