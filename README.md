@@ -1,5 +1,4 @@
 # Medical-Transcription-Analysis-using-LLMs
-<div align="center">
   
 # 🩺 Medical-Transcription Agents
 
