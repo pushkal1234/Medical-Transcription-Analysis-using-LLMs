@@ -59,7 +59,7 @@ Medical-Transcription Agents transforms the way healthcare professionals documen
 
 ```bash
 # Clone the repository
-git clone https://github.com/Ayushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs.git
+git clone https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs.git
 cd Medical-Transcription-Analysis-using-LLMs
 
 # Set up virtual environment
@@ -75,8 +75,21 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
 ```
-HUGGINGFACE_API_TOKEN=your_huggingface_token
 GOOGLE_API_KEY=your_google_api_key
+```
+
+## 📂 Project Structure
+
+```
+src/
+├── medical_transcription/
+│   ├── api/                  # FastAPI application
+│   ├── knowledge_base/       # Vector store for medical knowledge
+│   ├── ner/                  # Named Entity Recognition for medical terms
+│   ├── report_generation/    # Clinical report generation
+│   ├── summarization/        # Text summarization
+│   └── transcription/        # Audio transcription with Whisper
+├── main.py                   # Main entry point
 ```
 
 ## 🔧 The Tech Stack
@@ -144,6 +157,69 @@ graph TD
 - **Research** - Convert interviews and focus groups into structured data
 - **Telehealth** - Document remote consultations with comprehensive reports
 
+## 📚 API Documentation
+
+The API is available at `http://localhost:8000`. You can access the interactive API documentation at `http://localhost:8000/docs`.
+
+### API Endpoints
+
+- **GET /** - Welcome message and API status
+- **POST /transcribe** - Transcribe an audio file
+- **POST /extract_entities** - Extract medical entities from text
+- **POST /summarize** - Summarize medical text
+- **POST /generate_report** - Generate a clinical report
+- **GET /download_report/{report_id}** - Download a generated report as PDF
+- **POST /process** - Process audio through the entire pipeline
+- **POST /query_knowledge_base** - Query the medical knowledge base
+- **POST /explain_medical_terms** - Get simple explanations for medical terms
+
+### Example: Processing an Audio File
+
+```python
+import requests
+
+# Transcribe an audio file
+with open('patient_recording.wav', 'rb') as f:
+    files = {'audio_file': f}
+    response = requests.post('http://localhost:8000/transcribe', files=files)
+    
+transcription = response.json()['transcription']
+print(f"Transcription: {transcription}")
+
+# Extract medical entities
+entities_response = requests.post(
+    'http://localhost:8000/extract_entities',
+    json={'text': transcription}
+)
+entities = entities_response.json()['entities']
+print(f"Medical entities: {entities}")
+
+# Generate a summary
+summary_response = requests.post(
+    'http://localhost:8000/summarize',
+    json={'text': transcription}
+)
+summary = summary_response.json()['summary']
+print(f"Summary: {summary}")
+
+# Generate a report
+report_response = requests.post(
+    'http://localhost:8000/generate_report',
+    json={
+        'entities': entities,
+        'summary': summary
+    }
+)
+report_id = report_response.json()['report_id']
+print(f"Report generated with ID: {report_id}")
+
+# Download the report
+report_pdf = requests.get(f'http://localhost:8000/download_report/{report_id}')
+with open('clinical_report.pdf', 'wb') as f:
+    f.write(report_pdf.content)
+print("Report downloaded as clinical_report.pdf")
+```
+
 ## 🌱 Roadmap
 
 - [ ] Multi-language support for global healthcare settings
@@ -179,6 +255,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   
 Made with ❤️ for the healthcare community
 
-[⭐ Star this repo](https://github.com/Ayushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs) | [🐛 Report Bug](https://github.com/Ayushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs/issues) | [📝 Request Feature](https://github.comAyushi-shukla-tech/Medical-Transcription-Analysis-using-LLMs/issues)
+[⭐ Star this repo](https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs) | [🐛 Report Bug](https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs/issues) | [📝 Request Feature](https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs/issues)
 
 </div>
