@@ -11,7 +11,7 @@ from datetime import datetime
 
 # Import our modules
 from ..transcription.whisper_transcriber import WhisperTranscriber
-from ner.medical_ner import MedicalNER
+from ..ner.medical_ner import MedicalNER
 from ..summarization.text_summarizer import TextSummarizer
 from ..knowledge_base.vector_store import MedicalKnowledgeBase
 from ..report_generation.report_generator import ReportGenerator
