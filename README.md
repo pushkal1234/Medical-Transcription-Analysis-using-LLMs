@@ -81,15 +81,39 @@ GOOGLE_API_KEY=your_google_api_key
 ## 📂 Project Structure
 
 ```
-src/
-├── medical_transcription/
-│   ├── api/                  # FastAPI application
-│   ├── knowledge_base/       # Vector store for medical knowledge
-│   ├── ner/                  # Named Entity Recognition for medical terms
-│   ├── report_generation/    # Clinical report generation
-│   ├── summarization/        # Text summarization
-│   └── transcription/        # Audio transcription with Whisper
-├── main.py                   # Main entry point
+.
+├── src/
+│   ├── main.py                           # Main entry point
+│   └── medical_transcription/
+│       ├── __init__.py
+│       ├── api/                          # FastAPI application
+│       │   ├── __init__.py
+│       │   └── app.py
+│       ├── knowledge_base/               # Vector store for medical knowledge
+│       │   ├── __init__.py
+│       │   └── vector_store.py
+│       ├── ner/                          # Named Entity Recognition for medical terms
+│       │   ├── __init__.py
+│       │   └── medical_ner.py
+│       ├── report_generation/            # Clinical report generation
+│       │   ├── __init__.py
+│       │   └── report_generator.py
+│       ├── summarization/                # Text summarization
+│       │   ├── __init__.py
+│       │   └── text_summarizer.py
+│       └── transcription/                # Audio transcription with Whisper
+│           ├── __init__.py
+│           └── whisper_transcriber.py
+├── examples/                             # Example scripts
+│   └── process_audio.py
+├── tests/                                # Test scripts
+│   └── test_installation.py
+├── requirements.txt                      # Project dependencies
+├── setup.py                              # Package installation script
+├── .env.example                          # Example environment variables
+├── Makefile                              # Common development tasks
+├── LICENSE                               # MIT License
+└── README.md                             # This file
 ```
 
 ## 🔧 The Tech Stack
