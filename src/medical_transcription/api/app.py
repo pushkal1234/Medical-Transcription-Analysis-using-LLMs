@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 import uvicorn
 from datetime import datetime
+from dotenv import load_dotenv
 
 # Import our modules
 from ..transcription.whisper_transcriber import WhisperTranscriber
@@ -36,6 +37,21 @@ ner = MedicalNER()
 summarizer = TextSummarizer()
 kb = MedicalKnowledgeBase()
 report_generator = ReportGenerator()
+
+# Ensure API key is loaded and report generator is initialized
+@app.on_event("startup")
+async def startup_event():
+    # Load environment variables
+    load_dotenv()
+    
+    # Check for API key
+    api_key = os.getenv("GOOGLE_API_KEY")
+    logger.info(f"API key available at startup: {bool(api_key)}")
+    
+    # Explicitly initialize report generator if needed
+    if report_generator.model is None and api_key:
+        logger.info("Explicitly initializing report generator at startup")
+        report_generator.configure_api(api_key)
 
 # Create a directory for storing temporary files
 os.makedirs("temp", exist_ok=True)
@@ -188,6 +204,15 @@ async def process_full(background_tasks: BackgroundTasks,
     Process audio or text through the entire pipeline.
     """
     try:
+        # Debug: Check if API key is available
+        api_key = os.getenv("GOOGLE_API_KEY")
+        logger.info(f"API key available in /process endpoint: {bool(api_key)}")
+        if not api_key:
+            logger.warning("GOOGLE_API_KEY not found in environment variables in /process endpoint")
+        
+        # Debug: Check if report generator is initialized
+        logger.info(f"Report generator model initialized: {report_generator.model is not None}")
+        
         # Step 1: Get transcription (either from audio or directly provided)
         transcription = None
         if file:
@@ -216,7 +241,9 @@ async def process_full(background_tasks: BackgroundTasks,
         summary = summarizer.summarize_medical_conversation(transcription)
         
         # Step 4: Generate report
+        logger.info("About to generate report...")
         report = report_generator.generate_report(entities, summary)
+        logger.info(f"Report generation result: {'Success' if not report.startswith('Error') else report}")
         
         # Step 5: Save report as PDF
         report_id = str(uuid.uuid4())

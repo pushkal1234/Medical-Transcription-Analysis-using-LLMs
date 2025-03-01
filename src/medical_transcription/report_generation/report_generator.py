@@ -34,7 +34,7 @@ class ReportGenerator:
         logger.info(f"Initializing ReportGenerator with model: {model_name}")
         self.model_name = model_name
         self.model = None
-        
+        load_dotenv()
         # Get API key from environment variable
         api_key = os.getenv("GOOGLE_API_KEY")
         if not api_key:
@@ -218,8 +218,16 @@ class ReportGenerator:
 
 # Example usage
 if __name__ == "__main__":
-    # Set your API key in environment variable or directly here for testing
-    os.environ["GOOGLE_API_KEY"] = "your-api-key-here"  # Replace with your actual API key
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    # Get API key from environment variable
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        print("Warning: GOOGLE_API_KEY not found in environment variables")
+        print("Please set it in your .env file or export it directly")
+    else:
+        print(f"Using Google API key from environment variables")
     
     generator = ReportGenerator()
     
