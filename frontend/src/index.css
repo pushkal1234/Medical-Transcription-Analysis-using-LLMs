@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.medical-entity {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.entity-SYMPTOM {
+  background-color: #ffcccb;
+  border: 1px solid #ff8a8a;
+}
+
+.entity-DIAGNOSIS {
+  background-color: #c2e0ff;
+  border: 1px solid #7fbfff;
+}
+
+.entity-MEDICATION {
+  background-color: #d1ffd1;
+  border: 1px solid #9dff9d;
+}
+
+.entity-PROCEDURE {
+  background-color: #fff2cc;
+  border: 1px solid #ffe066;
+}
+
+.entity-ANATOMY {
+  background-color: #e6ccff;
+  border: 1px solid #cc99ff;
+} 

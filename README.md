@@ -67,6 +67,10 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Or run makefile command
+
+make install
 ```
 
 ### Configuration
@@ -74,7 +78,9 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
 ```
-GOOGLE_API_KEY=your_google_api_key
+GOOGLE_API_KEY=your_google_api_key   
+
+# https://aistudio.google.com/app/apikey
 ```
 
 ## 📂 Project Structure
@@ -281,3 +287,45 @@ Made with ❤️ for the healthcare community
 [⭐ Star this repo](https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs) | [🐛 Report Bug](https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs/issues) | [📝 Request Feature](https://github.com/yourusername/Medical-Transcription-Analysis-using-LLMs/issues)
 
 </div>
+
+## Frontend UI
+
+The project includes a React-based frontend UI that provides a user-friendly interface for interacting with the Medical Transcription Analysis API.
+
+### Features
+
+- **Home Page**: Overview of the application's features
+- **Transcribe Page**: Upload or record audio for transcription
+- **Process Page**: Process audio or text through the entire pipeline
+- **Knowledge Base Page**: Query the medical knowledge base
+- **Explain Terms Page**: Get simple explanations for medical terms
+
+### Running the Frontend
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`
+
+### Building for Production
+
+To build the frontend for production:
+
+```bash
+cd frontend
+npm run build
+```
+
+This will create a `build` directory with optimized production files.
