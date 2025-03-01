@@ -1,4 +1,4 @@
-.PHONY: setup install test run clean
+.PHONY: setup install test run clean venv dev-install format lint example frontend-install frontend-start frontend-build run-all help
 
 # Default target
 all: setup install
@@ -65,17 +65,42 @@ example:
 	@echo "Running example script..."
 	python examples/process_audio.py $(AUDIO_FILE) --output-dir output
 
+# Install frontend dependencies
+frontend-install:
+	@echo "Installing frontend dependencies..."
+	cd frontend && npm install
+
+# Start frontend development server
+frontend-start:
+	@echo "Starting frontend development server..."
+	cd frontend && NODE_OPTIONS=--openssl-legacy-provider npm start
+
+# Build frontend for production
+frontend-build:
+	@echo "Building frontend for production..."
+	cd frontend && npm run build
+
+# Run both backend and frontend
+run-all:
+	@echo "Starting both backend and frontend..."
+	chmod +x run.sh
+	./run.sh
+
 # Help
 help:
 	@echo "Available targets:"
-	@echo "  setup        - Set up the project"
-	@echo "  install      - Install dependencies"
-	@echo "  test         - Run tests"
-	@echo "  run          - Run the API server"
-	@echo "  clean        - Clean temporary files"
-	@echo "  venv         - Create a virtual environment"
-	@echo "  dev-install  - Install development dependencies"
-	@echo "  format       - Format code with black and isort"
-	@echo "  lint         - Lint code with flake8"
-	@echo "  example      - Run example script (use AUDIO_FILE=path/to/audio.wav)"
-	@echo "  help         - Show this help message" 
+	@echo "  setup           - Set up the project"
+	@echo "  install         - Install dependencies"
+	@echo "  test            - Run tests"
+	@echo "  run             - Run the API server"
+	@echo "  clean           - Clean temporary files"
+	@echo "  venv            - Create a virtual environment"
+	@echo "  dev-install     - Install development dependencies"
+	@echo "  format          - Format code with black and isort"
+	@echo "  lint            - Lint code with flake8"
+	@echo "  example         - Run example script (use AUDIO_FILE=path/to/audio.wav)"
+	@echo "  frontend-install - Install frontend dependencies"
+	@echo "  frontend-start  - Start frontend development server"
+	@echo "  frontend-build  - Build frontend for production"
+	@echo "  run-all         - Run both backend and frontend"
+	@echo "  help            - Show this help message" 

@@ -1,0 +1,6 @@
+.PHONY: setup install test run clean venv dev-install format lint example frontend-install frontend-start frontend-build run-all help
+
+# Start frontend development server
+frontend-start:
+	@echo "Starting frontend development server..."
+	cd frontend && NODE_OPTIONS=--openssl-legacy-provider npm start
